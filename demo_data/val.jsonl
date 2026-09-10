@@ -1,0 +1,4 @@
+{"id": "val_0000", "scene_id": "val_scene_0", "rgb": "val/rgb/0000.png", "thermal": "val/thermal/0000.png", "label": "val/labels/0000.txt"}
+{"id": "val_0001", "scene_id": "val_scene_1", "rgb": "val/rgb/0001.png", "thermal": "val/thermal/0001.png", "label": "val/labels/0001.txt"}
+{"id": "val_0002", "scene_id": "val_scene_2", "rgb": "val/rgb/0002.png", "thermal": "val/thermal/0002.png", "label": "val/labels/0002.txt"}
+{"id": "val_0003", "scene_id": "val_scene_3", "rgb": "val/rgb/0003.png", "thermal": "val/thermal/0003.png", "label": "val/labels/0003.txt"}

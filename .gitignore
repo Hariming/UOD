@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+.agents/
+.codex/
+*.zip
+runs/
+data/
+data_audit/
+results/
+*.pt
+smoke_report.json

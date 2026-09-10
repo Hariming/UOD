@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "device": "cpu",
+  "torch": "2.10.0+cpu",
+  "checks": [
+    "3-epoch toy training",
+    "exact epoch-boundary resume",
+    "NFE-free export",
+    "deployment validation parity",
+    "RGB inference",
+    "thermal inference",
+    "RGBT concat+NMS inference"
+  ],
+  "seconds": 14.635416925000072,
+  "limitations": "Synthetic data only. CUDA/AMP, real-data accuracy and pretrained downloads were not tested."
+}

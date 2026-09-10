@@ -1,0 +1,53 @@
+seed: 2026
+device: cpu
+num_workers: 0
+model:
+  backbone: resnet18
+  pretrained: false
+  channels: 32
+  head_depth: 1
+  normalization: none
+  nfe_init: perturbed_copy
+  nfe_noise: 0.05
+data:
+  train_manifest: ../demo_data/train.jsonl
+  val_manifest: ../demo_data/val.jsonl
+  class_names: [toy_class_0, toy_class_1]
+  image_size: 128
+  thermal_divisor: 255.0
+  letterbox_fill: 0.4470588235294118
+augmentation:
+  flip_probability: 0.5
+  rgb_brightness: 0.0
+loss:
+  alpha: 1.0
+  margin: 1.0
+  reduction: pixel
+  mask_padding: false
+  detection:
+    background_weight: 0.1
+    negative_ratio: 3
+    min_negatives: 32
+    box_normalization: stride
+training:
+  epochs: 3
+  batch_size: 2
+  val_batch_size: 2
+  accum_steps: 1
+  lr: 0.001
+  weight_decay: 0.0001
+  grad_clip: 5.0
+  warmup_epochs: 0
+  final_lr_ratio: 0.1
+  amp: false
+  amp_dtype: float16
+  freeze_backbone_bn: false
+  out_dir: ../runs/smoke
+  eval_every: 1
+  save_every: 10
+  log_every: 1
+postprocess:
+  score_threshold: 0.001
+  pre_nms_topk: 300
+  iou_threshold: 0.5
+  max_detections: 100

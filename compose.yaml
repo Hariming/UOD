@@ -1,0 +1,26 @@
+services:
+  uod-train:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: uod-reference:torch2.4.1-cu124
+    working_dir: /workspace/Hari/uod_reference
+    user: "1000:1000"
+    init: true
+    stdin_open: true
+    tty: true
+    shm_size: "16gb"
+    volumes:
+      - .:/workspace/Hari/uod_reference
+    environment:
+      HOME: /tmp/uod-home
+      XDG_CACHE_HOME: /tmp/uod-cache
+      PYTHONUNBUFFERED: "1"
+      CUDA_DEVICE_ORDER: PCI_BUS_ID
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["1"]
+              capabilities: [gpu]

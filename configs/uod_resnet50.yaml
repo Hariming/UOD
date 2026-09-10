@@ -1,0 +1,58 @@
+# OUR ResNet/FPN/PAN baseline, NOT the authors' UOD-v5/v8 architecture.
+seed: 2026
+device: cuda:0
+num_workers: 4
+model:
+  backbone: resnet50
+  pretrained: true          # torchvision ImageNet weights; first run needs download
+  channels: 256
+  head_depth: 2
+  normalization: imagenet  # identical preprocessing for both modalities
+  nfe_init: perturbed_copy # OUR initialization choice; independent params + small noise
+  nfe_noise: 0.05
+
+data:
+  # Relative paths are resolved relative to THIS YAML, not the shell directory.
+  train_manifest: ../data/train.jsonl
+  val_manifest: ../data/val.jsonl
+  class_names: [person, car]  # MUST match class_id order in the label files
+  image_size: 640
+  thermal_divisor: 255.0   # e.g. 65535 for full-range 16-bit, not per-image min-max
+  letterbox_fill: 0.4470588235294118
+augmentation:
+  flip_probability: 0.5   # ONE geometric transform for RGB, thermal, GT and valid mask
+  rgb_brightness: 0.0
+loss:
+  alpha: 1.0              # Paper Eq.(13)
+  margin: 1.0             # Threshold on SQUARED Euclidean distance
+  reduction: pixel       # OUR definition of N over all pyramid positions
+  mask_padding: false    # Full spatial contrast; true is an optional engineering variant
+  detection:
+    center_radius: 1.5
+    size_ranges: [[0, 64], [64, 128], [128, 100000000]]
+    background_weight: 0.1
+    negative_ratio: 3
+    min_negatives: 32
+    box_normalization: stride # L1 in feature-grid coordinate units; OUR convention
+training:
+  epochs: 100             # starting configuration, not claimed paper hyperparameters
+  batch_size: 4           # 4 PAIRS = 8 images through shared BFE/IFE/IFD
+  val_batch_size: 4
+  accum_steps: 1
+  lr: 0.0002
+  weight_decay: 0.0001
+  grad_clip: 5.0
+  warmup_epochs: 3
+  final_lr_ratio: 0.1
+  amp: false              # enable after the FP32 smoke test; CUDA-only AMP
+  amp_dtype: float16
+  freeze_backbone_bn: false
+  out_dir: ../runs/uod_resnet50
+  eval_every: 1
+  save_every: 5
+  log_every: 20
+postprocess:
+  score_threshold: 0.001  # low threshold for AP; predict.py default is 0.05
+  pre_nms_topk: 3000
+  iou_threshold: 0.5
+  max_detections: 100

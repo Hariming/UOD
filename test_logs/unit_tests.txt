@@ -1,0 +1,23 @@
+test_ap_perfect_and_undefined_classes (test_uod.DataAndMetricTests.test_ap_perfect_and_undefined_classes) ... ok
+test_letterbox_coordinate_roundtrip (test_uod.DataAndMetricTests.test_letterbox_coordinate_roundtrip) ... ok
+test_paired_flip_is_synchronized (test_uod.DataAndMetricTests.test_paired_flip_is_synchronized) ... ok
+test_rgbt_fuses_before_class_aware_nms (test_uod.DataAndMetricTests.test_rgbt_fuses_before_class_aware_nms) ... ok
+test_uint16_not_silently_clipped (test_uod.DataAndMetricTests.test_uint16_not_silently_clipped) ... ok
+test_collapse_is_not_formal_disentanglement (test_uod.FeatureLossTests.test_collapse_is_not_formal_disentanglement) ... ok
+test_margin_is_threshold_on_squared_distance (test_uod.FeatureLossTests.test_margin_is_threshold_on_squared_distance) ... ok
+test_normalization_is_channelwise_not_global (test_uod.FeatureLossTests.test_normalization_is_channelwise_not_global) ... ok
+test_padding_mask_option (test_uod.FeatureLossTests.test_padding_mask_option) ... ok
+test_positive_term_counted_twice (test_uod.FeatureLossTests.test_positive_term_counted_twice) ... ok
+test_separated_features_zero_loss (test_uod.FeatureLossTests.test_separated_features_zero_loss) ... ok
+test_shapes_and_margin_fail_fast (test_uod.FeatureLossTests.test_shapes_and_margin_fail_fast) ... ok
+test_backward_reaches_all_five_modules (test_uod.ModelTests.test_backward_reaches_all_five_modules) ... ok
+test_empty_gt_safe (test_uod.ModelTests.test_empty_gt_safe) ... ok
+test_export_reload_exact (test_uod.ModelTests.test_export_reload_exact) ... ok
+test_nfe_architecture_equal_but_parameters_independent (test_uod.ModelTests.test_nfe_architecture_equal_but_parameters_independent) ... ok
+test_shared_modules_called_once_for_pair (test_uod.ModelTests.test_shared_modules_called_once_for_pair) ... ok
+test_thermal_replication_and_deployment_parity (test_uod.ModelTests.test_thermal_replication_and_deployment_parity) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 1.840s
+
+OK

@@ -1,0 +1,8 @@
+{"id": "train_0000", "scene_id": "train_scene_0", "rgb": "train/rgb/0000.png", "thermal": "train/thermal/0000.png", "label": "train/labels/0000.txt"}
+{"id": "train_0001", "scene_id": "train_scene_1", "rgb": "train/rgb/0001.png", "thermal": "train/thermal/0001.png", "label": "train/labels/0001.txt"}
+{"id": "train_0002", "scene_id": "train_scene_2", "rgb": "train/rgb/0002.png", "thermal": "train/thermal/0002.png", "label": "train/labels/0002.txt"}
+{"id": "train_0003", "scene_id": "train_scene_3", "rgb": "train/rgb/0003.png", "thermal": "train/thermal/0003.png", "label": "train/labels/0003.txt"}
+{"id": "train_0004", "scene_id": "train_scene_4", "rgb": "train/rgb/0004.png", "thermal": "train/thermal/0004.png", "label": "train/labels/0004.txt"}
+{"id": "train_0005", "scene_id": "train_scene_5", "rgb": "train/rgb/0005.png", "thermal": "train/thermal/0005.png", "label": "train/labels/0005.txt"}
+{"id": "train_0006", "scene_id": "train_scene_6", "rgb": "train/rgb/0006.png", "thermal": "train/thermal/0006.png", "label": "train/labels/0006.txt"}
+{"id": "train_0007", "scene_id": "train_scene_7", "rgb": "train/rgb/0007.png", "thermal": "train/thermal/0007.png", "label": "train/labels/0007.txt"}

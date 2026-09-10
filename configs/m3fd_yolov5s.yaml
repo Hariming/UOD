@@ -1,0 +1,57 @@
+# M3FD/TarDAL template. Generate manifests first with prepare_paired_manifest.py.
+# Verify that this class order matches the dataset's YOLO txt label ids before
+# training; papers sometimes rename People/person or Lamp/traffic light.
+seed: 2026
+device: cuda:0
+num_workers: 4
+model:
+  backbone: yolov5s
+  neck: yolov5_pafpn
+  pretrained: false
+  channels: 256
+  head_depth: 2
+  normalization: none
+  nfe_init: perturbed_copy
+  nfe_noise: 0.05
+data:
+  train_manifest: ../data/m3fd_uod/train.jsonl
+  val_manifest: ../data/m3fd_uod/val.jsonl
+  class_names: [People, Car, Bus, Motorcycle, Lamp, Truck]
+  image_size: 640
+  thermal_divisor: 255.0
+  letterbox_fill: 0.4470588235294118
+augmentation:
+  flip_probability: 0.5
+  rgb_brightness: 0.0
+loss:
+  alpha: 1.0
+  margin: 1.0
+  reduction: pixel
+  mask_padding: false
+  detection:
+    background_weight: 0.1
+    negative_ratio: 3
+    min_negatives: 32
+    box_normalization: stride
+training:
+  epochs: 100
+  batch_size: 4
+  val_batch_size: 4
+  accum_steps: 1
+  lr: 0.0002
+  weight_decay: 0.0001
+  grad_clip: 5.0
+  warmup_epochs: 3
+  final_lr_ratio: 0.1
+  amp: false
+  amp_dtype: float16
+  freeze_backbone_bn: false
+  out_dir: ../runs/m3fd_yolov5s
+  eval_every: 1
+  save_every: 5
+  log_every: 20
+postprocess:
+  score_threshold: 0.001
+  pre_nms_topk: 3000
+  iou_threshold: 0.5
+  max_detections: 100

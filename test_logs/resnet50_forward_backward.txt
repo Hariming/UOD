@@ -1,0 +1,4 @@
+R50 forward/backward finite: True
+intrinsic pyramid shapes: [[1, 256, 16, 16], [1, 256, 8, 8], [1, 256, 4, 4]]
+per-module parameters: {'bfe': 23508032, 'ife': 5051392, 'ifd': 2377482, 'nfe_rgb': 5051392, 'nfe_thermal': 5051392}
+train/deploy parameters: 41039690 30936906
